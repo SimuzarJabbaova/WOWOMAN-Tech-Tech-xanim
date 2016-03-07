@@ -1,0 +1,86 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package homework_massiv_2_olculu;
+
+/**
+ *
+ * @author Simuzer
+ */
+public class Homework_Massiv_2_olculu {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int[][] a = new int[3][5];
+        int[][] max_min = new int[3][2];
+        int[] max_index = new int[2];
+        int[] min_index = new int[2];
+        // int min=0;
+        // int max_index=0;
+        // int min_index=0;
+        System.out.println("Sizin massiv: ");
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                a[i][j] = (int) (Math.random() * 100);
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                if (j == 0) {
+                    max_min[i][0] = a[i][j]; //max
+                    max_index[0] = i;
+                    max_index[1] = j;
+                    max_min[i][1] = a[i][j]; //min
+                    min_index[0] = i;
+                    min_index[1] = j;
+                } else {
+                    if (max_min[i][0] < a[i][j]) {
+                        max_min[i][0] = a[i][j];
+                        max_index[0] = i;
+                        max_index[1] = j;
+
+                    }
+                    if (max_min[i][1] > a[i][j]) {
+                        max_min[i][1] = a[i][j];
+                        min_index[0] = i;
+                        min_index[1] = j;
+                        // min_index=i;
+                    }
+                }
+
+            }
+            a[max_index[0]][max_index[1]] = max_min[i][1];
+            a[min_index[0]][min_index[1]] = max_min[i][0];
+            System.out.println("max = " + max_min[i][0] + " min = " + max_min[i][1]);
+            System.out.println("max index i= " + max_index[0] + " j= " + max_index[1]);
+            System.out.println("min index i= " + min_index[0] + " j= " + min_index[1]);
+            System.out.println();
+        }
+        System.out.println("Sətirlərin max və min massivi: ");
+        for (int i = 0; i < max_min.length; i++) {
+            for (int j = 0; j < max_min[i].length; j++) {
+                System.out.print(max_min[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // System.out.println("\n Massivdə max = "+max+" indeksi = "+max_index);
+        // System.out.println("\n Massivdə min = "+min+" indeksi = "+min_index);
+        // TODO code application logic here
+    }
+
+}
