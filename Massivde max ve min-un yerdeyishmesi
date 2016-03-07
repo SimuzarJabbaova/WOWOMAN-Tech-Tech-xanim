@@ -1,0 +1,61 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package homework_massiv_min_max_yerdeyishme;
+
+/**
+ *
+ * @author Simuzer
+ */
+public class HomeWork_Massiv_min_max_yerdeyishme {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int[][] a = new int[3][5];
+        int[] max_index = new int[2];
+        int[] min_index = new int[2];
+        System.out.println("Sizin massiv: ");
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                a[i][j] = (int) (Math.random() * 100);
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                if (a[max_index[0]][max_index[1]] < a[i][j]) {
+                    max_index[0] = i;
+                    max_index[1] = j;
+                    // max_index=i;
+
+                }
+                if (a[min_index[0]][min_index[1]] > a[i][j]) {
+                    min_index[0] = i;
+                    min_index[1] = j;
+                }
+            }
+        }
+        System.out.println();
+
+        System.out.println("max = " + a[max_index[0]][max_index[1]] + " min = " + a[min_index[0]][min_index[1]]);
+        int k;
+        k = a[max_index[0]][max_index[1]];
+        a[max_index[0]][max_index[1]] = a[min_index[0]][min_index[1]];
+        a[min_index[0]][min_index[1]] = k;
+        //  a[min_index[0]][min_index[1]]=max;
+        System.out.println("Massivde min və max yeri deyisdirildi.");
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
+}
